@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Dr. William - Mfumo Kamili v4</title>
+    <title>Dr. William - Mfumo Kamili v5</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -717,7 +717,7 @@
 <div id="loginPage" style="display:flex;align-items:center;justify-content:center;min-height:100vh;padding:16px;">
     <div class="login-box">
         <div class="logo">🩺 Dr. William</div>
-        <div class="subtitle">Mfumo Kamili wa Ofisi v4.0</div>
+        <div class="subtitle">Mfumo Kamili wa Ofisi v5.0</div>
         <div class="field">
             <label>Namba ya Mfanyakazi</label>
             <input type="text" id="loginId" placeholder="Weka namba yako" value="">
@@ -734,7 +734,7 @@
             <i class="fa-solid fa-arrow-right-to-bracket"></i> Ingia
         </button>
         <div style="margin-top:12px;font-size:11px;color:var(--text-faint);">
-            <p>👑 Admin: <strong>1616</strong> / <strong>1616</strong></p>
+            <p>👑 Admin: <strong>***</strong> / <strong>***</strong></p>
             <p>☁️ Offline & Online (Supabase)</p>
             <p>🔊 Voice Reminders zimewashwa</p>
             <p>🎰 Jackpot System imewashwa</p>
@@ -1263,16 +1263,204 @@
 </div>
 
 <!-- MODALS -->
-<div class="modal-overlay" id="newTaskModal">...</div>
-<div class="modal-overlay" id="newUserModal">...</div>
-<div class="modal-overlay" id="editUserModal">...</div>
-<div class="modal-overlay" id="newRuleModal">...</div>
-<div class="modal-overlay" id="newDrugModal">...</div>
-<div class="modal-overlay" id="newPatientModal">...</div>
-<div class="modal-overlay" id="newEventModal">...</div>
-<div class="modal-overlay" id="newExpenseModal">...</div>
-<div class="modal-overlay" id="saleReceiptModal">...</div>
-<div class="modal-overlay" id="signatureModal">...</div>
+<div class="modal-overlay" id="newTaskModal">
+    <div class="modal-box">
+        <div class="modal-head">
+            <h3>📋 Kazi Mpya</h3>
+            <button class="modal-close" onclick="closeModal('newTaskModal')"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="field"><label>Jina la Kazi</label><input type="text" id="taskNameInput" placeholder="K.mf. Andika ripoti"></div>
+        <div class="field"><label>Maelezo</label><textarea id="taskDescInput" rows="2" placeholder="Maelezo..."></textarea></div>
+        <div class="field-row">
+            <div class="field"><label>Tarehe</label><input type="date" id="taskDateInput"></div>
+            <div class="field"><label>Kipaumbele</label>
+                <select id="taskPriorityInput">
+                    <option value="high">🔴 Juu</option>
+                    <option value="medium" selected>🟡 Kati</option>
+                    <option value="low">🟢 Chini</option>
+                </select>
+            </div>
+        </div>
+        <div class="field"><label>Kumbusho (Saa)</label><input type="number" id="taskReminderInput" placeholder="Saa ngapi zikipita" value="1"></div>
+        <div class="modal-actions">
+            <button class="btn-ghost" onclick="closeModal('newTaskModal')">Ghairi</button>
+            <button class="btn-gold" onclick="confirmAddTask()"><i class="fa-solid fa-check"></i> Ongeza</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="newUserModal">
+    <div class="modal-box">
+        <div class="modal-head">
+            <h3>👤 Sajili Mfanyakazi</h3>
+            <button class="modal-close" onclick="closeModal('newUserModal')"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="field"><label>Jina Kamili</label><input type="text" id="newUserName" placeholder="K.mf. Juma Hassan"></div>
+        <div class="field-row">
+            <div class="field"><label>Namba</label><input type="text" id="newUserId" placeholder="K.mf. 001"></div>
+            <div class="field"><label>Simu</label><input type="text" id="newUserPhone" placeholder="0712345678"></div>
+        </div>
+        <div class="field"><label>Nenosiri</label><input type="text" id="newUserPass" placeholder="Nenosiri" value="123"></div>
+        <div class="field"><label>Mshahara (TSh)</label><input type="number" id="newUserSalary" placeholder="K.mf. 500000"></div>
+        <div class="field"><label>Picha (URL)</label><input type="text" id="newUserImage" placeholder="https://example.com/picha.jpg"></div>
+        <div class="modal-actions">
+            <button class="btn-ghost" onclick="closeModal('newUserModal')">Ghairi</button>
+            <button class="btn-gold" onclick="confirmAddUser()"><i class="fa-solid fa-check"></i> Sajili</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="editUserModal">
+    <div class="modal-box">
+        <div class="modal-head">
+            <h3>✏️ Badilisha Mfanyakazi</h3>
+            <button class="modal-close" onclick="closeModal('editUserModal')"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <input type="hidden" id="editUserId">
+        <div class="field"><label>Jina</label><input type="text" id="editUserName"></div>
+        <div class="field"><label>Simu</label><input type="text" id="editUserPhone"></div>
+        <div class="field"><label>Nenosiri</label><input type="text" id="editUserPass" placeholder="Nenosiri jipya"></div>
+        <div class="field"><label>Mshahara (TSh)</label><input type="number" id="editUserSalary" placeholder="Mshahara"></div>
+        <div class="modal-actions">
+            <button class="btn-ghost" onclick="closeModal('editUserModal')">Ghairi</button>
+            <button class="btn-gold" onclick="confirmEditUser()"><i class="fa-solid fa-check"></i> Hifadhi</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="newRuleModal">
+    <div class="modal-box">
+        <div class="modal-head">
+            <h3>📜 Sheria Mpya</h3>
+            <button class="modal-close" onclick="closeModal('newRuleModal')"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="field"><label>Jina la Sheria</label><input type="text" id="ruleTitle" placeholder="K.mf. Sheria ya Uendeshaji"></div>
+        <div class="field"><label>Maelezo ya Sheria</label><textarea id="ruleContent" rows="4" placeholder="Andika sheria kwa kina..."></textarea></div>
+        <div class="modal-actions">
+            <button class="btn-ghost" onclick="closeModal('newRuleModal')">Ghairi</button>
+            <button class="btn-gold" onclick="confirmAddRule()"><i class="fa-solid fa-check"></i> Hifadhi</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="newDrugModal">
+    <div class="modal-box">
+        <div class="modal-head">
+            <h3>💊 Ongeza Dawa</h3>
+            <button class="modal-close" onclick="closeModal('newDrugModal')"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="field"><label>Jina la Dawa</label><input type="text" id="drugName" placeholder="K.mf. Panadol"></div>
+        <div class="field"><label>Kazi ya Dawa</label><input type="text" id="drugUse" placeholder="K.mf. Kupunguza maumivu"></div>
+        <div class="field"><label>Gharama (TSh)</label><input type="number" id="drugPrice" placeholder="K.mf. 5000"></div>
+        <div class="field"><label>Matumizi</label><textarea id="drugUsage" rows="2" placeholder="Maelekezo ya matumizi..."></textarea></div>
+        <div class="field"><label>Picha (Kamera au URL)</label>
+            <div style="display:flex;gap:8px;">
+                <input type="text" id="drugImage" placeholder="https://example.com/dawa.jpg" style="flex:1;">
+                <button class="btn-teal btn-sm" onclick="captureImage('drugImage')"><i class="fa-solid fa-camera"></i></button>
+            </div>
+        </div>
+        <div class="modal-actions">
+            <button class="btn-ghost" onclick="closeModal('newDrugModal')">Ghairi</button>
+            <button class="btn-gold" onclick="confirmAddDrug()"><i class="fa-solid fa-check"></i> Hifadhi</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="newPatientModal">
+    <div class="modal-box">
+        <div class="modal-head">
+            <h3>🧑‍⚕️ Sajili Mgonjwa/Mgeni</h3>
+            <button class="modal-close" onclick="closeModal('newPatientModal')"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="field"><label>Namba ya Mgonjwa</label><input type="text" id="patientNumber" placeholder="K.mf. 001"></div>
+        <div class="field"><label>Jina Kamili</label><input type="text" id="patientName" placeholder="K.mf. Amina Juma"></div>
+        <div class="field"><label>Namba ya Simu</label><input type="text" id="patientPhone" placeholder="K.mf. 0712345678"></div>
+        <div class="field"><label>Mahali Wanapoishi</label><input type="text" id="patientAddress" placeholder="K.mf. Tandale, Dar es Salaam"></div>
+        <div class="field"><label>Maelezo (hiari)</label><textarea id="patientNotes" rows="2" placeholder="Maelezo ya ziada..."></textarea></div>
+        <div class="field"><label>Picha (Kamera au URL)</label>
+            <div style="display:flex;gap:8px;">
+                <input type="text" id="patientImage" placeholder="https://example.com/mgonjwa.jpg" style="flex:1;">
+                <button class="btn-teal btn-sm" onclick="captureImage('patientImage')"><i class="fa-solid fa-camera"></i></button>
+            </div>
+        </div>
+        <div class="modal-actions">
+            <button class="btn-ghost" onclick="closeModal('newPatientModal')">Ghairi</button>
+            <button class="btn-gold" onclick="confirmAddPatient()"><i class="fa-solid fa-check"></i> Sajili</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="newEventModal">
+    <div class="modal-box">
+        <div class="modal-head">
+            <h3>📅 Tukio Jipya</h3>
+            <button class="modal-close" onclick="closeModal('newEventModal')"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="field"><label>Jina la Tukio</label><input type="text" id="eventTitle" placeholder="K.mf. Mkutano wa Wafanyakazi"></div>
+        <div class="field"><label>Tarehe</label><input type="date" id="eventDate"></div>
+        <div class="field"><label>Maelezo</label><textarea id="eventDesc" rows="2" placeholder="Maelezo ya tukio..."></textarea></div>
+        <div class="modal-actions">
+            <button class="btn-ghost" onclick="closeModal('newEventModal')">Ghairi</button>
+            <button class="btn-gold" onclick="confirmAddEvent()"><i class="fa-solid fa-check"></i> Ongeza</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="newExpenseModal">
+    <div class="modal-box">
+        <div class="modal-head">
+            <h3>💸 Matumizi Mpya</h3>
+            <button class="modal-close" onclick="closeModal('newExpenseModal')"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="field"><label>Jina la Matumizi</label><input type="text" id="expenseName" placeholder="K.mf. Kununua Dawa"></div>
+        <div class="field"><label>Kiasi (TSh)</label><input type="number" id="expenseAmount" placeholder="K.mf. 50000"></div>
+        <div class="field"><label>Maelezo</label><textarea id="expenseDesc" rows="2" placeholder="Maelezo..."></textarea></div>
+        <div class="modal-actions">
+            <button class="btn-ghost" onclick="closeModal('newExpenseModal')">Ghairi</button>
+            <button class="btn-gold" onclick="confirmAddExpense()"><i class="fa-solid fa-check"></i> Hifadhi</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="saleReceiptModal">
+    <div class="modal-box">
+        <div class="modal-head">
+            <h3>🧾 Stakabadhi ya Malipo</h3>
+            <button class="modal-close" onclick="closeModal('saleReceiptModal')"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="field"><label>Jina la Mteja</label><input type="text" id="receiptCustomer" placeholder="Jina la mteja"></div>
+        <div class="field"><label>Bidhaa</label><select id="receiptProduct"></select></div>
+        <div class="field"><label>Idadi</label><input type="number" id="receiptQty" value="1" min="1"></div>
+        <div class="field"><label>Hali ya Malipo</label>
+            <select id="receiptPaymentStatus">
+                <option value="paid">✅ Imelipiwa</option>
+                <option value="unpaid">❌ Bado</option>
+            </select>
+        </div>
+        <div class="modal-actions">
+            <button class="btn-ghost" onclick="closeModal('saleReceiptModal')">Ghairi</button>
+            <button class="btn-gold" onclick="generateReceipt()"><i class="fa-solid fa-receipt"></i> Tengeneza Stakabadhi</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="signatureModal">
+    <div class="modal-box">
+        <div class="modal-head">
+            <h3>✍️ Sahihi ya Kidijitali</h3>
+            <button class="modal-close" onclick="closeModal('signatureModal')"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div style="text-align:center;margin-bottom:10px;color:var(--text-dim);font-size:13px;">
+            Tafadhali sahihi kwa kidole chako kwenye kisanduku hapa chini
+        </div>
+        <canvas id="signatureCanvas" class="signature-pad"></canvas>
+        <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;">
+            <button class="btn-ghost btn-sm" onclick="clearSignature()"><i class="fa-solid fa-undo"></i> Futa</button>
+            <button class="btn-ghost btn-sm" onclick="saveSignature()"><i class="fa-solid fa-check"></i> Thibitisha Sahihi</button>
+        </div>
+        <div id="signatureStatus" style="margin-top:8px;font-size:12px;color:var(--text-dim);text-align:center;"></div>
+    </div>
+</div>
 
 <script>
 // ====================================================================
@@ -1363,11 +1551,11 @@ const supabase = {
 };
 
 // ====================================================================
-// DATA STORE - SINGLE SOURCE OF TRUTH
+// DATA STORE
 // ====================================================================
 const ADMIN_ID = '1616';
 const ADMIN_PASS = '1616';
-const STORAGE_KEY = 'dr_william_data_v4';
+const STORAGE_KEY = 'dr_william_data_v5';
 
 let db = loadData();
 let currentUser = null;
@@ -1399,7 +1587,7 @@ let jackpotData = {
 };
 
 // ====================================================================
-// DATA LOAD & SAVE - LINKED WITH CLOUD
+// DATA LOAD & SAVE
 // ====================================================================
 function loadData() {
     try {
@@ -1442,113 +1630,8 @@ function getDefaultData() {
 function saveData() {
     try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
-        // Also sync to cloud in background
-        syncToCloud();
     } catch (e) {
         console.warn('Save error:', e);
-    }
-}
-
-async function syncToCloud() {
-    try {
-        // Push all data to cloud
-        if (db.users) {
-            for (const user of db.users) {
-                if (user.id === ADMIN_ID) {
-                    await supabase.updateUser(user.id, user);
-                } else {
-                    await supabase.addUser(user);
-                }
-            }
-        }
-        if (db.tasks) {
-            for (const task of db.tasks) {
-                await supabase.addTask(task);
-            }
-        }
-        // ... push all other tables
-    } catch (e) {
-        console.warn('Cloud sync error:', e);
-    }
-}
-
-// ====================================================================
-// SYNC DATA - GET FROM CLOUD
-// ====================================================================
-async function syncData() {
-    const dot = document.getElementById('syncDot');
-    const text = document.getElementById('syncText');
-    dot.className = 'sync-dot syncing';
-    text.textContent = 'Inasawazisha...';
-
-    try {
-        const [users, tasks, attendance, rules, drugs, sales, patients, bonuses, stock, winner, events, expenses, receipts, notifications, savings, salaryRequests, scrollingText] = await Promise.all([
-            supabase.getUsers(),
-            supabase.getTasks(),
-            supabase.getAttendance(),
-            supabase.getRules(),
-            supabase.getDrugs(),
-            supabase.getSales(),
-            supabase.getPatients(),
-            supabase.getBonuses(),
-            supabase.getStock(),
-            supabase.getWinner(),
-            supabase.getEvents(),
-            supabase.getExpenses(),
-            supabase.getReceipts(),
-            supabase.getNotifications(),
-            supabase.getSavings(),
-            supabase.getSalaryRequests(),
-            supabase.getScrollingText()
-        ]);
-
-        if (users && !users.error) { db.users = users; }
-        if (tasks && !tasks.error) { db.tasks = tasks; }
-        if (attendance && !attendance.error) { db.attendance = attendance; }
-        if (rules && !rules.error) { db.rules = rules; }
-        if (drugs && !drugs.error) { db.drugs = drugs; }
-        if (sales && !sales.error) { db.sales = sales; }
-        if (patients && !patients.error) { db.patients = patients; }
-        if (bonuses && !bonuses.error) { db.bonuses = bonuses; }
-        if (stock && !stock.error) { db.stock = stock; }
-        if (winner && !winner.error && winner.length > 0) { db.winner = winner[0]; }
-        if (events && !events.error) { db.events = events; }
-        if (expenses && !expenses.error) { db.expenses = expenses; }
-        if (receipts && !receipts.error) { db.receipts = receipts; }
-        if (notifications && !notifications.error) { db.notifications = notifications; }
-        if (savings && !savings.error) { db.savings = savings; }
-        if (salaryRequests && !salaryRequests.error) { db.salary_requests = salaryRequests; }
-        if (scrollingText && !scrollingText.error && scrollingText.length > 0) { db.scrolling_text = scrollingText[0]; }
-
-        // Ensure admin exists
-        if (!db.users.find(u => u.id === ADMIN_ID)) {
-            db.users.push({ id: ADMIN_ID, name: 'Admin', password: ADMIN_PASS, role: 'admin', phone: '0712345678', salary: 0, image: '' });
-            await supabase.addUser({ id: ADMIN_ID, name: 'Admin', password: ADMIN_PASS, role: 'admin', phone: '0712345678', salary: 0, image: '' });
-        }
-
-        if (currentUser) {
-            const user = db.users.find(u => u.id === currentUser.id);
-            if (user) currentUser = user;
-        }
-
-        saveData();
-        dot.className = 'sync-dot online';
-        text.textContent = 'Cloud';
-        showToast('✅ Data imesawazishwa!', 'ok');
-        renderAll();
-        generateAIReport();
-        generateAIDailyReport();
-        startVoiceReminders();
-        updateNotifications();
-        updateScrollingTextDisplay();
-    } catch (e) {
-        dot.className = 'sync-dot offline';
-        text.textContent = 'Offline';
-        showToast('⚠️ Offline mode - data zimehifadhiwa ndani', 'warn');
-        console.warn('Sync error:', e);
-        renderAll();
-        startVoiceReminders();
-        updateScrollingTextDisplay();
     }
 }
 
@@ -1615,6 +1698,88 @@ function getWorkHoursForDay(userId, date) {
         end.setHours(h2, m2, s2 || 0, 0);
     }
     return (end - start) / 3600000;
+}
+
+// ====================================================================
+// SYNC DATA - CLOUD & LOCAL LINKED
+// ====================================================================
+async function syncData() {
+    const dot = document.getElementById('syncDot');
+    const text = document.getElementById('syncText');
+    dot.className = 'sync-dot syncing';
+    text.textContent = 'Inasawazisha...';
+
+    try {
+        const [users, tasks, attendance, rules, drugs, sales, patients, bonuses, stock, winner, events, expenses, receipts, notifications, savings, salaryRequests, scrollingText] = await Promise.all([
+            supabase.getUsers(),
+            supabase.getTasks(),
+            supabase.getAttendance(),
+            supabase.getRules(),
+            supabase.getDrugs(),
+            supabase.getSales(),
+            supabase.getPatients(),
+            supabase.getBonuses(),
+            supabase.getStock(),
+            supabase.getWinner(),
+            supabase.getEvents(),
+            supabase.getExpenses(),
+            supabase.getReceipts(),
+            supabase.getNotifications(),
+            supabase.getSavings(),
+            supabase.getSalaryRequests(),
+            supabase.getScrollingText()
+        ]);
+
+        if (users && !users.error) db.users = users;
+        if (tasks && !tasks.error) db.tasks = tasks;
+        if (attendance && !attendance.error) db.attendance = attendance;
+        if (rules && !rules.error) db.rules = rules;
+        if (drugs && !drugs.error) db.drugs = drugs;
+        if (sales && !sales.error) db.sales = sales;
+        if (patients && !patients.error) db.patients = patients;
+        if (bonuses && !bonuses.error) db.bonuses = bonuses;
+        if (stock && !stock.error) db.stock = stock;
+        if (winner && !winner.error && winner.length > 0) db.winner = winner[0];
+        if (events && !events.error) db.events = events;
+        if (expenses && !expenses.error) db.expenses = expenses;
+        if (receipts && !receipts.error) db.receipts = receipts;
+        if (notifications && !notifications.error) db.notifications = notifications;
+        if (savings && !savings.error) db.savings = savings;
+        if (salaryRequests && !salaryRequests.error) db.salary_requests = salaryRequests;
+        if (scrollingText && !scrollingText.error && scrollingText.length > 0) {
+            db.scrolling_text = scrollingText[0];
+        }
+
+        // Ensure admin exists
+        if (!db.users.find(u => u.id === ADMIN_ID)) {
+            db.users.push({ id: ADMIN_ID, name: 'Admin', password: ADMIN_PASS, role: 'admin', phone: '0712345678', salary: 0, image: '' });
+            await supabase.addUser({ id: ADMIN_ID, name: 'Admin', password: ADMIN_PASS, role: 'admin', phone: '0712345678', salary: 0, image: '' });
+        }
+
+        if (currentUser) {
+            const user = db.users.find(u => u.id === currentUser.id);
+            if (user) currentUser = user;
+        }
+
+        saveData();
+        dot.className = 'sync-dot online';
+        text.textContent = 'Cloud';
+        showToast('✅ Data imesawazishwa!', 'ok');
+        renderAll();
+        generateAIReport();
+        generateAIDailyReport();
+        startVoiceReminders();
+        updateNotifications();
+        updateScrollingTextDisplay();
+    } catch (e) {
+        dot.className = 'sync-dot offline';
+        text.textContent = 'Offline';
+        showToast('⚠️ Offline mode - data zimehifadhiwa ndani', 'warn');
+        console.warn('Sync error:', e);
+        renderAll();
+        startVoiceReminders();
+        updateScrollingTextDisplay();
+    }
 }
 
 // ====================================================================
@@ -1723,6 +1888,92 @@ function startVoiceReminders() {
 }
 
 // ====================================================================
+// CAMERA CAPTURE
+// ====================================================================
+function captureImage(inputId) {
+    if (!('mediaDevices' in navigator) || !('getUserMedia' in navigator.mediaDevices)) {
+        showToast('Kamera haipatikani kwenye kifaa hiki.', 'warn');
+        return;
+    }
+    
+    const input = document.getElementById(inputId);
+    if (!input) return;
+    
+    const video = document.createElement('video');
+    video.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;object-fit:cover;background:#000;';
+    video.autoplay = true;
+    document.body.appendChild(video);
+    
+    const captureBtn = document.createElement('button');
+    captureBtn.style.cssText = 'position:fixed;bottom:40px;left:50%;transform:translateX(-50%);z-index:10000;padding:16px 32px;border-radius:50%;background:var(--gold);color:#1a1305;border:none;font-size:20px;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,0.5);';
+    captureBtn.innerHTML = '<i class="fa-solid fa-camera"></i>';
+    document.body.appendChild(captureBtn);
+    
+    const closeBtn = document.createElement('button');
+    closeBtn.style.cssText = 'position:fixed;top:20px;right:20px;z-index:10000;padding:12px;border-radius:50%;background:rgba(0,0,0,0.7);color:#fff;border:none;font-size:20px;cursor:pointer;';
+    closeBtn.innerHTML = '<i class="fa-solid fa-times"></i>';
+    document.body.appendChild(closeBtn);
+    
+    let stream = null;
+    
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false })
+        .then(s => {
+            stream = s;
+            video.srcObject = s;
+            video.play();
+        })
+        .catch(err => {
+            showToast('Imeshindwa kufungua kamera: ' + err.message, 'warn');
+            document.body.removeChild(video);
+            document.body.removeChild(captureBtn);
+            document.body.removeChild(closeBtn);
+        });
+    
+    captureBtn.onclick = function() {
+        if (!stream) return;
+        
+        const canvas = document.createElement('canvas');
+        canvas.width = video.videoWidth || 640;
+        canvas.height = video.videoHeight || 480;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.9);
+        input.value = dataUrl;
+        
+        const preview = document.createElement('div');
+        preview.style.cssText = 'position:fixed;bottom:120px;left:50%;transform:translateX(-50%);z-index:10000;padding:10px;background:rgba(0,0,0,0.8);border-radius:10px;border:2px solid var(--gold);';
+        const img = document.createElement('img');
+        img.src = dataUrl;
+        img.style.cssText = 'max-width:200px;max-height:150px;border-radius:6px;';
+        preview.appendChild(img);
+        document.body.appendChild(preview);
+        
+        setTimeout(() => {
+            if (preview.parentNode) preview.remove();
+        }, 3000);
+        
+        showToast('✅ Picha imenakiliwa!', 'ok');
+        
+        if (stream) {
+            stream.getTracks().forEach(t => t.stop());
+        }
+        document.body.removeChild(video);
+        document.body.removeChild(captureBtn);
+        document.body.removeChild(closeBtn);
+    };
+    
+    closeBtn.onclick = function() {
+        if (stream) {
+            stream.getTracks().forEach(t => t.stop());
+        }
+        document.body.removeChild(video);
+        document.body.removeChild(captureBtn);
+        document.body.removeChild(closeBtn);
+    };
+}
+
+// ====================================================================
 // LOGIN / LOGOUT
 // ====================================================================
 async function handleLogin() {
@@ -1775,6 +2026,7 @@ async function handleLogin() {
         document.getElementById('adminStockForm').style.display = 'block';
         document.getElementById('allTasksContainer').style.display = 'block';
         document.getElementById('addExpenseBtn').style.display = 'inline-block';
+        document.getElementById('addTaskBtn').style.display = 'inline-block';
     } else {
         adminTab.style.display = 'none';
         document.getElementById('addRuleBtn').style.display = 'none';
@@ -1782,13 +2034,13 @@ async function handleLogin() {
         document.getElementById('adminStockForm').style.display = 'none';
         document.getElementById('allTasksContainer').style.display = 'none';
         document.getElementById('addExpenseBtn').style.display = 'none';
+        document.getElementById('addTaskBtn').style.display = 'none';
     }
 
     document.getElementById('userNameDisplay').textContent = currentUser.name;
     document.getElementById('userIdDisplay').textContent = '(***)';
     document.getElementById('userRoleDisplay').textContent = isAdmin ? 'Msimamizi' : 'Mfanyakazi';
 
-    // Sync all data
     await syncData();
     
     renderAll();
@@ -2985,13 +3237,13 @@ async function deleteDrug(drugId) {
 }
 
 // ====================================================================
-// RENDER: STOCK - Excel Style
+// RENDER: STOCK - Excel Style (IMEREKEBISHWA)
 // ====================================================================
 function populateStockSelects() {
     const select = document.getElementById('stockProductSelect');
     if (!select) return;
     const options = '<option value="new">🔵 Dawa/Bidhaa Mpya</option>' + 
-        db.stock.map(s => `<option value="${s.id}">${escapeHtml(s.name)} (Ziko: ${s.qty || 0})</option>`).join('');
+        (db.stock || []).map(s => `<option value="${s.id}">${escapeHtml(s.name)} (Ziko: ${s.qty || 0})</option>`).join('');
     select.innerHTML = options;
 }
 
@@ -3120,6 +3372,9 @@ function printStock() {
     }
 }
 
+// ====================================================================
+// ADMIN UPDATE STOCK - IMEREKEBISHWA KABISA
+// ====================================================================
 async function adminUpdateStock() {
     if (!currentUser || currentUser.role !== 'admin') {
         showToast('Sehemu hii ni ya Admin pekee!', 'warn');
@@ -3133,6 +3388,7 @@ async function adminUpdateStock() {
     const qty = parseInt(document.getElementById('stockQty').value) || 0;
     const price = parseInt(document.getElementById('stockPrice').value) || 0;
 
+    // KUHUSU BIDHAA MPYA
     if (selectedValue === 'new') {
         if (!name) {
             showToast('Tafadhali andika jina la bidhaa', 'warn');
@@ -3143,19 +3399,32 @@ async function adminUpdateStock() {
             return;
         }
 
-        const stockItem = {
-            id: 'st' + Date.now() + Math.random().toString(36).substr(2, 4),
-            name: name,
-            description: desc || '',
-            qty: qty,
-            price: price,
-            date: getTodayStr()
-        };
-
-        await supabase.addStock(stockItem);
-        await syncData();
-        showToast('✅ Bidhaa imeongezwa kwenye stock!', 'ok');
-    } else {
+        // Angalia kama bidhaa tayari ipo kwenye stock
+        const existing = db.stock.find(s => s.name.toLowerCase() === name.toLowerCase());
+        if (existing) {
+            // Ikiwa ipo, ongeza idadi
+            existing.qty = (existing.qty || 0) + qty;
+            if (price > 0) existing.price = price;
+            await supabase.updateStock(existing.id, { qty: existing.qty, price: existing.price });
+            showToast(`✅ ${name} imeongezwa! Idadi mpya: ${existing.qty}`, 'ok');
+        } else {
+            // Ikiwa haipo, unda mpya
+            const stockItem = {
+                id: 'st' + Date.now() + Math.random().toString(36).substr(2, 4),
+                name: name,
+                description: desc || '',
+                qty: qty,
+                price: price,
+                date: getTodayStr()
+            };
+            await supabase.addStock(stockItem);
+            if (!db.stock) db.stock = [];
+            db.stock.push(stockItem);
+            showToast(`✅ ${name} imeongezwa kwenye stock! Idadi: ${qty}`, 'ok');
+        }
+    } 
+    // KUHUSU BIDHAA ILIYOPO
+    else {
         const stockItem = db.stock.find(s => s.id === selectedValue);
         if (!stockItem) {
             showToast('Bidhaa haipatikani!', 'warn');
@@ -3167,20 +3436,28 @@ async function adminUpdateStock() {
             return;
         }
 
-        const updates = { qty: qty };
-        if (price > 0) updates.price = price;
-        if (name) updates.name = name;
-        if (desc) updates.description = desc;
+        // ONGEZA IDADI (si kubadilisha)
+        stockItem.qty = (stockItem.qty || 0) + qty;
+        if (price > 0) stockItem.price = price;
+        if (name) stockItem.name = name;
+        if (desc) stockItem.description = desc;
 
-        await supabase.updateStock(selectedValue, updates);
-        await syncData();
-        showToast('✅ Stock imebadilishwa!', 'ok');
+        await supabase.updateStock(selectedValue, { 
+            qty: stockItem.qty, 
+            price: stockItem.price,
+            name: stockItem.name,
+            description: stockItem.description
+        });
+        showToast(`✅ Stock imeongezwa! ${stockItem.name} sasa ina ${stockItem.qty}`, 'ok');
     }
 
+    // Futa fomu na refresh
     document.getElementById('stockProductName').value = '';
     document.getElementById('stockProductDesc').value = '';
     document.getElementById('stockQty').value = '';
     document.getElementById('stockPrice').value = '';
+    saveData();
+    await syncData();
     renderStock();
     populateStockSelects();
     populateSaleSelects();
@@ -3193,7 +3470,8 @@ async function deleteStockItem(itemId) {
     }
     if (!confirm('Je, una uhakika unataka kufuta bidhaa hii?')) return;
     await supabase.deleteStock(itemId);
-    await syncData();
+    db.stock = db.stock.filter(s => s.id !== itemId);
+    saveData();
     renderStock();
     populateStockSelects();
     populateSaleSelects();
@@ -3210,10 +3488,10 @@ function editStockItem(itemId) {
     document.getElementById('stockProductSelect').value = itemId;
     document.getElementById('stockProductName').value = item.name || '';
     document.getElementById('stockProductDesc').value = item.description || '';
-    document.getElementById('stockQty').value = item.qty || 0;
+    document.getElementById('stockQty').value = 0; // Ongeza idadi mpya
     document.getElementById('stockPrice').value = item.price || 0;
     
-    showToast('✅ Badilisha stock na ubonyeze "Hifadhi Stock"', 'ok');
+    showToast(`✅ Ongeza idadi kwa ${item.name} (sasa ina ${item.qty})`, 'ok');
 }
 
 // ====================================================================
@@ -3250,6 +3528,9 @@ function populateSaleSelects() {
     }
 }
 
+// ====================================================================
+// RENDER: SALES HISTORY
+// ====================================================================
 function renderSales() {
     const container = document.getElementById('salesHistory');
     const sales = db.sales ? db.sales.sort((a, b) => b.date.localeCompare(a.date)) : [];
@@ -3280,6 +3561,9 @@ function renderSales() {
     }).join('');
 }
 
+// ====================================================================
+// RECORD SALE - IMEREKEBISHWA
+// ====================================================================
 async function recordSale() {
     if (!currentUser) return;
 
@@ -3306,12 +3590,13 @@ async function recordSale() {
         return;
     }
 
-    if (item.qty < qty) {
+    if ((item.qty || 0) < qty) {
         showToast('Stock haitoshi! Ziko ' + item.qty + ' tu.', 'warn');
         return;
     }
 
-    item.qty -= qty;
+    // Punguza stock
+    item.qty = (item.qty || 0) - qty;
     if (db.stock.find(d => d.id === drugId)) {
         await supabase.updateStock(drugId, { qty: item.qty });
     } else if (db.drugs.find(d => d.id === drugId)) {
@@ -3333,6 +3618,9 @@ async function recordSale() {
     };
 
     await supabase.addSale(sale);
+    if (!db.sales) db.sales = [];
+    db.sales.push(sale);
+    saveData();
     await syncData();
 
     document.getElementById('saleQty').value = '1';
@@ -3387,12 +3675,12 @@ function generateReceipt() {
         return;
     }
     
-    if (item.qty < qty) {
+    if ((item.qty || 0) < qty) {
         showToast('Stock haitoshi! Ziko ' + item.qty + ' tu.', 'warn');
         return;
     }
     
-    item.qty -= qty;
+    item.qty = (item.qty || 0) - qty;
     if (db.stock.find(d => d.id === productId)) {
         supabase.updateStock(productId, { qty: item.qty });
     } else if (db.drugs.find(d => d.id === productId)) {
@@ -3415,6 +3703,8 @@ function generateReceipt() {
     };
     
     supabase.addSale(sale);
+    if (!db.sales) db.sales = [];
+    db.sales.push(sale);
     
     const receipt = {
         id: 'r' + Date.now() + Math.random().toString(36).substr(2, 4),
@@ -3530,7 +3820,7 @@ function viewReceipt(saleId) {
 }
 
 // ====================================================================
-// RENDER: PATIENTS - EXCEL STYLE
+// RENDER: PATIENTS - EXCEL STYLE (IMEREKEBISHWA)
 // ====================================================================
 function renderPatients() {
     const tbody = document.getElementById('patientTableBody');
@@ -3591,6 +3881,9 @@ function renderPatients() {
     `).join('');
 }
 
+// ====================================================================
+// PRINT PATIENTS
+// ====================================================================
 function printPatients() {
     const patients = db.patients || [];
     if (patients.length === 0) {
@@ -3698,6 +3991,9 @@ function viewPatientDetails(patientId) {
     });
 }
 
+// ====================================================================
+// CONFIRM ADD PATIENT - IMEREKEBISHWA
+// ====================================================================
 async function confirmAddPatient() {
     if (!currentUser) return;
 
@@ -3726,6 +4022,9 @@ async function confirmAddPatient() {
     };
 
     await supabase.addPatient(patient);
+    if (!db.patients) db.patients = [];
+    db.patients.push(patient);
+    saveData();
     await syncData();
     closeModal('newPatientModal');
     document.getElementById('patientNumber').value = '';
@@ -3744,6 +4043,7 @@ async function togglePatientTaken(patientId) {
     if (!patient) return;
     patient.taken = !patient.taken;
     await supabase.query('patients', 'PATCH', { taken: patient.taken }, patientId);
+    saveData();
     await syncData();
     renderPatients();
     showToast(patient.taken ? '✅ Mgonjwa amechukua dawa' : '❌ Mgonjwa hajachukua dawa', patient.taken ? 'ok' : 'warn');
@@ -3756,7 +4056,8 @@ async function deletePatient(patientId) {
     }
     if (!confirm('Je, una uhakika unataka kumfuta mgonjwa huyu?')) return;
     await supabase.deletePatient(patientId);
-    await syncData();
+    db.patients = db.patients.filter(p => p.id !== patientId);
+    saveData();
     renderPatients();
     showToast('Mgonjwa amefutwa', 'warn');
 }
@@ -3834,6 +4135,9 @@ async function confirmAddExpense() {
     };
 
     await supabase.addExpense(expense);
+    if (!db.expenses) db.expenses = [];
+    db.expenses.push(expense);
+    saveData();
     await syncData();
     closeModal('newExpenseModal');
     document.getElementById('expenseName').value = '';
@@ -3850,7 +4154,8 @@ async function deleteExpense(expenseId) {
     }
     if (!confirm('Je, una uhakika unataka kufuta matumizi haya?')) return;
     await supabase.deleteExpense(expenseId);
-    await syncData();
+    db.expenses = db.expenses.filter(e => e.id !== expenseId);
+    saveData();
     renderExpenses();
     showToast('Matumizi yamefutwa', 'warn');
 }
@@ -4368,6 +4673,8 @@ async function deleteTask(taskId) {
     }
     if (!confirm('Je, una uhakika unataka kufuta kazi hii?')) return;
     await supabase.deleteTask(taskId);
+    db.tasks = db.tasks.filter(t => t.id !== taskId);
+    saveData();
     await syncData();
     renderAll();
     showToast('Kazi imefutwa', 'warn');
@@ -4402,6 +4709,9 @@ async function confirmAddTask() {
     };
 
     await supabase.addTask(task);
+    if (!db.tasks) db.tasks = [];
+    db.tasks.push(task);
+    saveData();
     await syncData();
     closeModal('newTaskModal');
     document.getElementById('taskNameInput').value = '';
@@ -4447,6 +4757,9 @@ async function adminAssignTask() {
     };
 
     await supabase.addTask(task);
+    if (!db.tasks) db.tasks = [];
+    db.tasks.push(task);
+    saveData();
     await syncData();
 
     document.getElementById('adminTaskName').value = '';
@@ -4490,6 +4803,9 @@ async function adminAddBonus() {
     };
 
     await supabase.addBonus(bonus);
+    if (!db.bonuses) db.bonuses = [];
+    db.bonuses.push(bonus);
+    saveData();
     await syncData();
 
     document.getElementById('adminBonusAmount').value = '';
@@ -4524,6 +4840,7 @@ async function setSalary() {
 
     user.salary = amount;
     await supabase.updateUser(userId, { salary: amount });
+    saveData();
     await syncData();
     renderAll();
     showToast('✅ Mshahara wa ' + user.name + ' umewekwa TSh ' + amount.toLocaleString(), 'ok');
@@ -4616,8 +4933,11 @@ async function handleCheckIn() {
         await supabase.query('attendance', 'PATCH', { check_in: timeStr, check_out: null }, record.id);
     } else {
         await supabase.addAttendance(data);
+        if (!db.attendance) db.attendance = [];
+        db.attendance.push(data);
     }
     
+    saveData();
     await syncData();
     renderAll();
     
@@ -4665,6 +4985,8 @@ async function handleCheckOut() {
     }
     
     await supabase.query('attendance', 'PATCH', { check_out: timeStr }, record.id);
+    record.check_out = timeStr;
+    saveData();
     await syncData();
     renderAll();
     
@@ -4717,6 +5039,9 @@ async function confirmAddUser() {
 
     const user = { id, name, password: pass, role: 'staff', phone: phone || '', salary: salary, image: image || '' };
     await supabase.addUser(user);
+    if (!db.users) db.users = [];
+    db.users.push(user);
+    saveData();
     await syncData();
     closeModal('newUserModal');
     document.getElementById('newUserName').value = '';
@@ -4743,6 +5068,8 @@ async function deleteUser(userId) {
     if (!confirm('Je, una uhakika unataka kumfuta mfanyakazi huyu?')) return;
 
     await supabase.deleteUser(userId);
+    db.users = db.users.filter(u => u.id !== userId);
+    saveData();
     await syncData();
     renderAll();
     showToast('✅ Mfanyakazi amefutwa!', 'ok');
@@ -4778,6 +5105,14 @@ async function confirmEditUser() {
     if (pass) updateData.password = pass;
 
     await supabase.updateUser(userId, updateData);
+    const user = db.users.find(u => u.id === userId);
+    if (user) {
+        user.name = name;
+        user.salary = salary;
+        if (phone) user.phone = phone;
+        if (pass) user.password = pass;
+    }
+    saveData();
     await syncData();
     closeModal('editUserModal');
     renderAll();
@@ -5047,6 +5382,7 @@ function startJackpotSpin() {
                 };
                 if (!db.bonuses) db.bonuses = [];
                 db.bonuses.push(bonus);
+                saveData();
             }
             
             saveJackpot();
@@ -5136,6 +5472,7 @@ function setJackpotWinner() {
     };
     if (!db.bonuses) db.bonuses = [];
     db.bonuses.push(bonus);
+    saveData();
     
     saveJackpot();
     saveData();
@@ -5733,12 +6070,12 @@ function init() {
     initJackpot();
     initSignaturePad();
 
-    console.log('✅ Dr. William Mfumo Kamili v4 imeanza!');
+    console.log('✅ Dr. William Mfumo Kamili v5 imeanza!');
     console.log('👑 Admin: *** / ***');
-    console.log('☁️ Data zote zimehifadhiwa Cloud (Supabase)');
-    console.log('🔊 Voice Reminders: Kila dakika 5 inakumbusha majukumu');
-    console.log('🎰 Jackpot: Spinning animation na confetti!');
-    console.log('💰 Mshahara: AI inahesabu kulingana na mahudhurio');
+    console.log('✅ Stock inaongezeka!');
+    console.log('✅ Wagonjwa wanaonekana!');
+    console.log('✅ Mauzo yanafanya kazi!');
+    console.log('✅ Cloud na Local zinalink!');
 }
 
 document.addEventListener('DOMContentLoaded', init);
