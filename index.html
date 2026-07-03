@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Dr. William - Mfumo Kamili v5</title>
+    <title>Dr. William - Mfumo Kamili v6</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* STYLES ZOTE ZIPO HAPA - ZILEZILE ZA AWALI */
         :root {
             --gold: #D4A24E;
             --gold-dark: #8a6a2f;
@@ -39,7 +40,6 @@
             padding-bottom: 80px;
         }
         .app-container { max-width: 1200px; margin: 0 auto; }
-
         .btn-gold { background: var(--gold); color: #1a1305; border: none; padding: 10px 20px; border-radius: 10px; font-weight: 600; cursor: pointer; font-size: 14px; transition: all 0.2s; }
         .btn-gold:hover { opacity: 0.85; transform: scale(0.97); }
         .btn-ghost { background: var(--panel-2); color: var(--text-dim); border: 1px solid var(--line); padding: 10px 20px; border-radius: 10px; font-weight: 600; cursor: pointer; font-size: 14px; }
@@ -54,7 +54,6 @@
         .btn-orange { background: var(--orange); color: #1a1305; border: none; padding: 10px 20px; border-radius: 10px; font-weight: 600; cursor: pointer; }
         .btn-pink { background: var(--pink); color: #fff; border: none; padding: 10px 20px; border-radius: 10px; font-weight: 600; cursor: pointer; font-size: 14px; }
         .btn-teal { background: var(--teal); color: #fff; border: none; padding: 10px 20px; border-radius: 10px; font-weight: 600; cursor: pointer; font-size: 14px; }
-
         .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; margin-bottom: 12px; }
         .card-gold { border-color: var(--gold); background: rgba(212,162,78,0.06); }
         .card-green { border-color: var(--green); background: rgba(61,190,122,0.06); }
@@ -62,7 +61,6 @@
         .card-blue { border-color: var(--blue); background: rgba(74,155,232,0.06); }
         .card-pink { border-color: var(--pink); background: rgba(236,72,153,0.06); }
         .card-teal { border-color: var(--teal); background: rgba(20,184,166,0.06); }
-
         input, select, textarea {
             background: var(--panel-2);
             border: 1px solid var(--line);
@@ -75,7 +73,6 @@
             font-family: inherit;
         }
         input:focus, select:focus, textarea:focus { border-color: var(--gold); }
-
         .topbar {
             display: flex;
             align-items: center;
@@ -112,7 +109,6 @@
             font-size: 12px;
         }
         .clock-display { font-size: 12px; color: var(--text-dim); font-family: monospace; }
-
         .nav-tabs { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; overflow-x: auto; padding-bottom: 4px; }
         .nav-tab {
             padding: 6px 14px;
@@ -128,11 +124,9 @@
         }
         .nav-tab:hover { background: var(--panel); color: var(--text); }
         .nav-tab.active { background: var(--panel); border-color: var(--gold); color: var(--gold); }
-
         .page { display: none; animation: fadeIn 0.3s; }
         .page.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -151,7 +145,6 @@
         .stat-card .number.red { color: var(--red); }
         .stat-card .number.blue { color: var(--blue); }
         .stat-card .label { font-size: 11px; color: var(--text-dim); }
-
         .task-item {
             background: var(--panel-2);
             border: 1px solid var(--line);
@@ -194,7 +187,6 @@
         .task-item .task-status.pending { background: var(--red-soft); color: var(--red); }
         .task-item .task-status.done { background: var(--green-soft); color: var(--green); }
         .task-item .task-status.approved { background: var(--gold-soft); color: var(--gold); }
-
         .modal-overlay {
             display: none;
             position: fixed;
@@ -235,7 +227,6 @@
         .modal-box .field label { display: block; font-size: 12px; color: var(--text-dim); margin-bottom: 4px; font-weight: 500; }
         .modal-box .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 14px; }
-
         .toast-stack {
             position: fixed;
             bottom: 80px;
@@ -260,7 +251,6 @@
         .toast.warn { border-left-color: var(--red); }
         .toast.ok { border-left-color: var(--green); }
         .toast.reminder { border-left-color: var(--gold); background: rgba(212,162,78,0.1); }
-
         .login-box {
             background: var(--panel);
             border: 1px solid var(--gold);
@@ -279,7 +269,6 @@
         .login-box .password-wrapper { display: flex; align-items: center; gap: 8px; }
         .login-box .password-wrapper input { flex: 1; }
         .password-toggle { cursor: pointer; font-size: 16px; color: var(--text-dim); padding: 8px; }
-
         .admin-user-card {
             background: var(--panel-2);
             border: 1px solid var(--line);
@@ -299,7 +288,6 @@
         .cloud-badge { background: rgba(74,155,232,0.15); color: var(--blue); font-size: 10px; padding: 2px 10px; border-radius: 999px; display: inline-flex; align-items: center; gap: 4px; }
         .admin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         @media (max-width: 800px) { .admin-grid { grid-template-columns: 1fr; } }
-
         .task-list-empty { color: var(--text-faint); text-align: center; padding: 24px 0; font-size: 14px; }
         .sync-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
         .sync-dot.online { background: var(--green); }
@@ -308,12 +296,10 @@
         @keyframes blink { 50% { opacity: 0.3; } }
         .voice-indicator { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--green); animation: pulse 1s infinite; }
         @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.3); opacity: 0.7; } 100% { transform: scale(1); opacity: 1; } }
-        
         .staff-info-card .row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 13px; }
         .staff-info-card .row:last-child { border-bottom: none; }
         .staff-info-card .label { color: var(--text-dim); }
         .staff-info-card .value { font-weight: 500; }
-
         .attendance-box { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
         @media (max-width: 600px) { .attendance-box { grid-template-columns: 1fr; } }
         .attendance-card {
@@ -337,9 +323,7 @@
         .status-badge.out { background: var(--red-soft); color: var(--red); }
         .status-badge.pending { background: var(--gold-soft); color: var(--gold); }
         .status-badge.late { background: var(--red-soft); color: var(--red); animation: blink 0.5s infinite; }
-
         .timer-display { font-size: 28px; font-weight: 700; color: var(--gold); text-align: center; padding: 8px 0; font-family: monospace; }
-
         .calendar-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
@@ -365,7 +349,6 @@
         .calendar-grid .day.has-event { border: 1px solid var(--red); color: var(--red); }
         .calendar-grid .day.has-event:hover { background: rgba(226,87,76,0.15); transform: scale(1.05); }
         .calendar-grid .day.has-attendance { border: 1px solid var(--green); }
-
         .report-item {
             background: var(--panel-2);
             border: 1px solid var(--line);
@@ -383,40 +366,16 @@
         .report-status.warning { background: var(--orange-soft); color: var(--orange); }
         .report-status.bad { background: var(--red-soft); color: var(--red); }
         .ai-suggestion { background: rgba(212,162,78,0.1); border: 1px solid var(--gold); border-radius: 8px; padding: 8px 12px; margin-top: 6px; font-size: 13px; }
-
         .print-btn { background: var(--panel-2); border: 1px solid var(--line); color: var(--text-dim); padding: 6px 12px; border-radius: 8px; font-size: 12px; cursor: pointer; }
         .print-btn:hover { border-color: var(--gold); color: var(--text); }
-
-        /* Stock Items - Excel Style */
-        .stock-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 14px;
-            background: var(--panel-2);
-            border-radius: 10px;
-            margin-bottom: 6px;
-            border: 1px solid var(--line);
-        }
-        .stock-item .stock-img {
-            width: 50px; height: 50px;
-            border-radius: 8px;
-            background: var(--panel);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            border: 1px solid var(--line);
-            overflow: hidden;
-        }
+        .stock-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--panel-2); border-radius: 10px; margin-bottom: 6px; border: 1px solid var(--line); }
+        .stock-item .stock-img { width: 50px; height: 50px; border-radius: 8px; background: var(--panel); display: flex; align-items: center; justify-content: center; font-size: 24px; border: 1px solid var(--line); overflow: hidden; }
         .stock-item .stock-img img { width: 100%; height: 100%; object-fit: cover; }
         .stock-item .stock-info { flex: 1; }
         .stock-item .stock-info .name { font-weight: 600; font-size: 14px; }
         .stock-item .stock-info .meta { font-size: 11px; color: var(--text-dim); }
         .stock-item .stock-qty { font-weight: 700; color: var(--gold); font-size: 18px; min-width: 40px; text-align: center; }
         .stock-item .stock-price { color: var(--green); font-weight: 600; font-size: 14px; min-width: 80px; text-align: right; }
-
-        /* Rule Items */
         .rule-item {
             background: var(--panel-2);
             border: 1px solid var(--line);
@@ -427,8 +386,6 @@
         }
         .rule-item .rule-title { font-weight: 600; font-size: 14px; color: var(--gold); }
         .rule-item .rule-content { font-size: 13px; color: var(--text-dim); margin-top: 4px; }
-
-        /* Patient Items - Excel Style */
         .patient-table {
             width: 100%;
             border-collapse: collapse;
@@ -458,8 +415,6 @@
         .patient-count { font-size: 13px; color: var(--text-dim); margin-bottom: 10px; }
         .patient-count strong { color: var(--gold); }
         .table-responsive { overflow-x: auto; }
-
-        /* Attendance Staff List */
         .attendance-staff-list {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -481,8 +436,6 @@
         .attendance-staff-item .staff-status.present { background: var(--green-soft); color: var(--green); }
         .attendance-staff-item .staff-status.absent { background: var(--red-soft); color: var(--red); }
         .attendance-staff-item .staff-status.late { background: var(--orange-soft); color: var(--orange); }
-
-        /* Sale/Receipt Items */
         .sale-item {
             background: var(--panel-2);
             border: 1px solid var(--line);
@@ -497,8 +450,6 @@
         .sale-item .sale-status { font-size: 11px; padding: 2px 10px; border-radius: 999px; display: inline-block; }
         .sale-item .sale-status.paid { background: var(--green-soft); color: var(--green); }
         .sale-item .sale-status.unpaid { background: var(--red-soft); color: var(--red); }
-
-        /* Bonus 3D */
         .bonus-3d {
             background: linear-gradient(135deg, var(--gold), #f7d875, var(--gold-dark));
             border-radius: 16px;
@@ -518,8 +469,6 @@
         .bonus-3d .amount { font-size: 48px; font-weight: 800; color: #1a1305; text-shadow: 0 2px 4px rgba(255,255,255,0.3); }
         .bonus-3d .label { font-size: 14px; color: #1a1305; opacity: 0.8; }
         .bonus-3d .winner { font-size: 18px; font-weight: 700; color: #1a1305; margin-top: 8px; }
-
-        /* Jackpot Styles */
         .jackpot-container { margin-bottom: 16px; }
         .jackpot-display { text-align: center; padding: 15px; background: var(--panel-2); border-radius: 12px; border: 2px solid rgba(212,162,78,0.2); }
         .jackpot-slot { background: var(--bg); border-radius: 12px; padding: 15px 20px; border: 2px solid var(--gold); min-height: 60px; display: flex; align-items: center; justify-content: center; }
@@ -531,7 +480,6 @@
         .jackpot-status { font-size: 13px; font-weight: 600; margin-top: 6px; padding: 4px 16px; border-radius: 999px; display: inline-block; background: rgba(212,162,78,0.1); color: var(--gold); }
         .jackpot-status.spinning { background: rgba(245,166,35,0.2); color: #F5A623; animation: statusPulse 0.3s ease-in-out infinite; }
         .jackpot-status.winner { background: rgba(61,190,122,0.2); color: #3DBE7A; animation: statusPulse 0.8s ease-in-out infinite; }
-
         @keyframes slotSpin { 0% { transform: scale(1) rotate(0deg); } 25% { transform: scale(1.02) rotate(1deg); } 50% { transform: scale(1) rotate(0deg); } 75% { transform: scale(1.02) rotate(-1deg); } 100% { transform: scale(1) rotate(0deg); } }
         @keyframes winCelebration { 0% { transform: scale(0.5) rotate(-10deg); opacity: 0; } 30% { transform: scale(1.3) rotate(5deg); opacity: 1; } 60% { transform: scale(0.9) rotate(-3deg); } 80% { transform: scale(1.1) rotate(2deg); } 100% { transform: scale(1) rotate(0deg); } }
         @keyframes amountPulse { 0% { transform: scale(1); color: var(--gold); } 50% { transform: scale(1.1); color: #ffd700; } 100% { transform: scale(1); color: var(--gold); } }
@@ -539,15 +487,10 @@
         .confetti-container { position: fixed; inset: 0; pointer-events: none; z-index: 9999; overflow: hidden; }
         .confetti { position: absolute; opacity: 0; animation: confettiFall var(--duration, 3s) ease-in forwards; }
         @keyframes confettiFall { 0% { transform: translateY(-20px) rotate(0deg) scale(1); opacity: 1; } 100% { transform: translateY(calc(100vh + 50px)) rotate(720deg) scale(0.3); opacity: 0; } }
-
         .voice-reminder-badge { background: var(--red-soft); color: var(--red); padding: 4px 12px; border-radius: 999px; font-size: 11px; font-weight: 600; animation: blink 1s infinite; }
-
-        /* Tasks for all staff */
         .all-tasks-container { margin-top: 12px; }
         .all-tasks-container .task-group { margin-bottom: 10px; }
         .all-tasks-container .task-group .group-title { font-size: 13px; font-weight: 600; color: var(--gold); margin-bottom: 4px; }
-
-        /* Receipt/Invoice Styles */
         .receipt-container {
             background: #fff;
             color: #1a1a2e;
@@ -596,25 +539,17 @@
             color: rgba(226,87,76,0.15);
             border-color: rgba(226,87,76,0.15);
         }
-
-        /* Drug with image */
         .drug-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--panel-2); border-radius: 10px; margin-bottom: 6px; border: 1px solid var(--line); }
         .drug-item .drug-img { width: 50px; height: 50px; border-radius: 8px; background: var(--panel); display: flex; align-items: center; justify-content: center; font-size: 24px; border: 1px solid var(--line); overflow: hidden; }
         .drug-item .drug-img img { width: 100%; height: 100%; object-fit: cover; }
         .drug-item .drug-info { flex: 1; }
         .drug-item .drug-info .name { font-weight: 600; font-size: 14px; }
         .drug-item .drug-info .meta { font-size: 11px; color: var(--text-dim); }
-
-        /* Voice Settings */
         .voice-settings { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
         .voice-settings select, .voice-settings input { width: auto; min-width: 120px; padding: 6px 10px; font-size: 12px; }
-
-        /* Calendar Event */
         .calendar-event { background: var(--panel-2); border-radius: 8px; padding: 8px 12px; margin-bottom: 4px; border-left: 3px solid var(--red); }
         .calendar-event .event-title { font-weight: 600; font-size: 13px; }
         .calendar-event .event-detail { font-size: 11px; color: var(--text-dim); }
-
-        /* My Salary */
         .salary-card {
             background: linear-gradient(135deg, var(--teal), var(--blue));
             border-radius: 12px;
@@ -624,8 +559,6 @@
         }
         .salary-card .amount { font-size: 32px; font-weight: 800; }
         .salary-card .label { font-size: 12px; opacity: 0.8; }
-
-        /* Notification */
         .notification-bell {
             position: relative;
             cursor: pointer;
@@ -645,8 +578,6 @@
             justify-content: center;
             animation: blink 0.5s infinite;
         }
-
-        /* Digital Signature Pad */
         .signature-pad {
             border: 2px solid var(--gold);
             border-radius: 8px;
@@ -655,8 +586,6 @@
             width: 100%;
             height: 200px;
         }
-
-        /* Scrolling Text */
         .scrolling-text {
             overflow: hidden;
             white-space: nowrap;
@@ -677,12 +606,9 @@
             0% { transform: translateX(100%); }
             100% { transform: translateX(-100%); }
         }
-
-        /* Scrolling Text Pause on hover */
         .scrolling-text:hover .scroll-content {
             animation-play-state: paused;
         }
-
         @media (max-width: 640px) {
             .app-container { padding: 4px; }
             .topbar { padding: 8px 12px; }
@@ -717,7 +643,7 @@
 <div id="loginPage" style="display:flex;align-items:center;justify-content:center;min-height:100vh;padding:16px;">
     <div class="login-box">
         <div class="logo">🩺 Dr. William</div>
-        <div class="subtitle">Mfumo Kamili wa Ofisi v5.0</div>
+        <div class="subtitle">Mfumo Kamili wa Ofisi v6.0</div>
         <div class="field">
             <label>Namba ya Mfanyakazi</label>
             <input type="text" id="loginId" placeholder="Weka namba yako" value="">
@@ -734,7 +660,7 @@
             <i class="fa-solid fa-arrow-right-to-bracket"></i> Ingia
         </button>
         <div style="margin-top:12px;font-size:11px;color:var(--text-faint);">
-            <p>👑 Admin: <strong>***</strong> / <strong>***</strong></p>
+            <p>👑 Admin: <strong>1616</strong> / <strong>1616</strong></p>
             <p>☁️ Offline & Online (Supabase)</p>
             <p>🔊 Voice Reminders zimewashwa</p>
             <p>🎰 Jackpot System imewashwa</p>
@@ -794,25 +720,18 @@
 
         <!-- PAGE: DASHBOARD -->
         <div class="page active" id="page-dashboard">
-            <!-- Bonus 3D -->
             <div class="bonus-3d" id="bonus3dContainer">
                 <div class="label">🏆 MFANYAKAZI BORA WA MWEZI</div>
                 <div class="winner" id="bonusWinner">Inasubiri...</div>
                 <div class="amount" id="bonusAmount">TSh 0</div>
                 <div class="label">Bonus ya Mwezi</div>
             </div>
-
-            <!-- Jackpot Container -->
             <div id="jackpotContainer"></div>
-
-            <!-- Scrolling Text -->
             <div class="scrolling-text" id="scrollingTextContainer">
                 <div class="scroll-content" id="scrollingTextContent">
                     🎉 Karibu Dr. William! Hakuna jackpot iliyowekwa bado. 👑 Admin ndiye anayeweka jackpot.
                 </div>
             </div>
-
-            <!-- Voice Reminder Badge -->
             <div id="voiceReminderBadge" style="display:none;margin-bottom:12px;">
                 <div class="card card-red" style="padding:12px;">
                     <div style="display:flex;align-items:center;gap:10px;">
@@ -821,7 +740,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="staff-info-card card" id="staffInfoCard">
                 <div class="row"><span class="label">Jina</span><span class="value" id="staffName">-</span></div>
                 <div class="row"><span class="label">Namba</span><span class="value" id="staffId">-</span></div>
@@ -832,14 +750,12 @@
                 <div class="row"><span class="label">Hali</span><span class="value" id="staffStatus">-</span></div>
                 <div class="row"><span class="label">Saa za Kazi Leo</span><span class="value" id="staffHoursToday">-</span></div>
             </div>
-
             <div class="stats-grid">
                 <div class="stat-card"><div class="number" id="statTasksTotal">0</div><div class="label">Majukumu</div></div>
                 <div class="stat-card"><div class="number green" id="statTasksDone">0</div><div class="label">Yamekamilika</div></div>
                 <div class="stat-card"><div class="number red" id="statTasksPending">0</div><div class="label">Yamesalia</div></div>
                 <div class="stat-card"><div class="number gold" id="statPerformance">0%</div><div class="label">Utendaji</div></div>
             </div>
-
             <div class="card card-gold">
                 <h4 style="margin-bottom:8px;color:var(--gold);font-size:15px;">
                     <i class="fa-solid fa-bullhorn"></i> Habari za Leo
@@ -848,7 +764,6 @@
                 </h4>
                 <p style="color:var(--text-dim);font-size:14px;" id="dashboardGreeting">Karibu! Angalia majukumu yako ya leo.</p>
             </div>
-
             <div style="margin-top:12px;">
                 <h4 style="font-size:14px;margin-bottom:8px;">Majukumu ya Leo</h4>
                 <div id="dashboardTaskList"></div>
@@ -868,8 +783,6 @@
                 </div>
             </div>
             <div id="taskListContainer"></div>
-
-            <!-- All Tasks for Admin -->
             <div id="allTasksContainer" class="all-tasks-container" style="display:none;">
                 <h4 style="font-size:14px;margin-bottom:8px;color:var(--gold);">📋 Majukumu ya Wafanyakazi Wote</h4>
                 <div id="allTasksList"></div>
@@ -906,8 +819,6 @@
                 <h4 style="font-size:14px;margin-bottom:8px;">📋 Rekodi yangu</h4>
                 <div id="attendanceHistory"></div>
             </div>
-
-            <!-- All Staff Attendance -->
             <div class="card card-gold">
                 <h4 style="font-size:14px;color:var(--gold);margin-bottom:8px;">👥 Mahudhurio ya Wafanyakazi Wote</h4>
                 <div id="allStaffAttendance"></div>
@@ -932,12 +843,10 @@
                 <h4 style="font-size:14px;margin-bottom:8px;">🏆 Bonus Zilizopatikana</h4>
                 <div id="bonusDisplay"></div>
             </div>
-            <!-- AI Daily Report -->
             <div class="card card-blue">
                 <h4 style="font-size:14px;color:var(--blue);margin-bottom:8px;">🤖 AI Daily Report</h4>
                 <div id="aiDailyReport"></div>
             </div>
-            <!-- AI Suggestions -->
             <div class="card card-purple">
                 <h4 style="font-size:14px;color:var(--purple);margin-bottom:8px;">💡 AI Maoni na Ushauri</h4>
                 <div id="aiSuggestions"></div>
@@ -960,7 +869,6 @@
                 <h4 style="font-size:13px;margin-bottom:6px;">📌 Majukumu na Matukio ya Tarehe</h4>
                 <div id="calendarTaskList"></div>
             </div>
-            <!-- Savings Calendar -->
             <div class="card card-teal" style="margin-top:12px;">
                 <h4 style="font-size:14px;color:var(--teal);margin-bottom:8px;">💰 Kalenda ya Akiba (Savings Calendar)</h4>
                 <div id="savingsCalendar"></div>
@@ -986,11 +894,9 @@
             <div id="drugsContainer"></div>
         </div>
 
-        <!-- PAGE: STOCK - Excel Style -->
+        <!-- PAGE: STOCK -->
         <div class="page" id="page-stock">
             <h3 style="font-size:17px;margin-bottom:12px;"><i class="fa-solid fa-warehouse"></i> Stock ya Dawa/Bidhaa</h3>
-            
-            <!-- Admin Add Stock Form -->
             <div id="adminStockForm" style="display:none;" class="card card-gold">
                 <h4 style="font-size:14px;color:var(--gold);margin-bottom:8px;">📦 Ongeza au Badilisha Stock</h4>
                 <div class="field"><label>Aina ya Dawa/Bidhaa</label>
@@ -1008,8 +914,6 @@
                 </div>
                 <button class="btn-gold" onclick="adminUpdateStock()"><i class="fa-solid fa-check"></i> Hifadhi Stock</button>
             </div>
-
-            <!-- Stock Display - Excel Style -->
             <div class="card" style="padding:0;overflow:hidden;">
                 <div class="table-responsive">
                     <table class="patient-table" id="stockTable">
@@ -1064,10 +968,9 @@
             </div>
         </div>
 
-        <!-- PAGE: PATIENTS - EXCEL STYLE -->
+        <!-- PAGE: PATIENTS -->
         <div class="page" id="page-patients">
             <h3 style="font-size:17px;margin-bottom:12px;"><i class="fa-solid fa-users"></i> Wagonjwa / Wageni</h3>
-            
             <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px;">
                 <div class="patient-count">
                     Jumla: <strong id="patientTotalCount">0</strong> · 
@@ -1078,7 +981,6 @@
                     <i class="fa-solid fa-user-plus"></i> Sajili Mgonjwa
                 </button>
             </div>
-
             <div class="card" style="padding:0;overflow:hidden;">
                 <div class="table-responsive">
                     <table class="patient-table" id="patientTable">
@@ -1109,7 +1011,7 @@
             <button class="btn-ghost btn-sm" onclick="printPatients()" style="margin-top:8px;"><i class="fa-solid fa-print"></i> Print Wagonjwa (Excel)</button>
         </div>
 
-        <!-- PAGE: EXPENSES - Admin Only -->
+        <!-- PAGE: EXPENSES -->
         <div class="page" id="page-expenses">
             <h3 style="font-size:17px;margin-bottom:12px;"><i class="fa-solid fa-money-bill-wave"></i> Matumizi ya Fedha</h3>
             <button class="btn-gold btn-sm" onclick="openModal('newExpenseModal')" id="addExpenseBtn" style="display:none;margin-bottom:12px;"><i class="fa-solid fa-plus"></i> Ongeza Matumizi</button>
@@ -1145,13 +1047,10 @@
                 <span class="admin-only"><i class="fa-solid fa-lock"></i> Admin</span>
                 <span class="cloud-badge"><i class="fa-solid fa-cloud"></i> Cloud</span>
             </h3>
-
-            <!-- AI Reports -->
             <div class="card card-gold">
                 <h4 style="font-size:14px;color:var(--gold);margin-bottom:8px;"><i class="fa-solid fa-robot"></i> AI - Ushauri wa Wafanyakazi</h4>
                 <div id="aiReportContainer"></div>
             </div>
-
             <div class="admin-grid">
                 <div class="card">
                     <h4 style="font-size:14px;margin-bottom:8px;">👥 Wafanyakazi</h4>
@@ -1162,14 +1061,12 @@
                     <button class="btn-ghost btn-sm" style="width:100%;margin-top:4px;" onclick="syncData()">
                         <i class="fa-solid fa-cloud"></i> Sawazisha Cloud
                     </button>
-                    <!-- Salary Section -->
                     <div style="margin-top:8px;padding:10px;background:var(--panel-2);border-radius:8px;">
                         <h5 style="font-size:13px;color:var(--gold);">💰 Mshahara</h5>
                         <div class="field"><label>Mfanyakazi</label><select id="adminSalaryUser"></select></div>
                         <div class="field"><label>Mshahara wa Mwezi (TSh)</label><input type="number" id="adminSalaryAmount" placeholder="K.mf. 500000"></div>
                         <button class="btn-gold btn-sm" onclick="setSalary()"><i class="fa-solid fa-check"></i> Weka Mshahara</button>
                     </div>
-                    <!-- Salary Requests -->
                     <div style="margin-top:8px;padding:10px;background:var(--panel-2);border-radius:8px;">
                         <h5 style="font-size:13px;color:var(--gold);">📋 Maombi ya Mshahara</h5>
                         <div id="adminSalaryRequests"></div>
@@ -1191,14 +1088,10 @@
                     <button class="btn-gold" style="width:100%;" onclick="adminAssignTask()"><i class="fa-solid fa-paper-plane"></i> Gawanya</button>
                 </div>
             </div>
-
-            <!-- Approve Tasks -->
             <div class="card card-blue">
                 <h4 style="font-size:14px;color:var(--blue);margin-bottom:8px;">✅ Thibitisha Majukumu ya Wafanyakazi</h4>
                 <div id="adminApproveTasks"></div>
             </div>
-
-            <!-- Bonus Management -->
             <div class="card card-green">
                 <h4 style="font-size:14px;margin-bottom:8px;">🏆 Dhibiti Bonus</h4>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
@@ -1208,19 +1101,14 @@
                 <div class="field"><label>Sababu</label><input type="text" id="adminBonusReason" placeholder="K.mf. Utendaji bora"></div>
                 <button class="btn-gold" onclick="adminAddBonus()"><i class="fa-solid fa-gift"></i> Toa Bonus</button>
             </div>
-
-            <!-- Bonus Winner (Jackpot) -->
             <div class="card card-gold">
                 <h4 style="font-size:14px;color:var(--gold);margin-bottom:8px;">🏆 Teua Mshindi wa Bonus (Jackpot Animation)</h4>
                 <div class="field"><label>Mfanyakazi Bora</label><select id="adminWinnerUser"></select></div>
                 <div class="field"><label>Kiasi cha Bonus</label><input type="number" id="adminWinnerAmount" placeholder="K.mf. 100000"></div>
                 <button class="btn-orange" onclick="setBonusWinner()"><i class="fa-solid fa-trophy"></i> Weka Mshindi</button>
                 <button class="btn-purple" onclick="startJackpotSpin()"><i class="fa-solid fa-rotate"></i> Zungusha Jackpot</button>
-                <!-- Scrolling Text Update -->
                 <button class="btn-ghost btn-sm" onclick="updateScrollingText()"><i class="fa-solid fa-pen"></i> Badilisha Maandishi</button>
             </div>
-
-            <!-- Voice Settings -->
             <div class="card card-pink">
                 <h4 style="font-size:14px;color:var(--pink);margin-bottom:8px;">🔊 Mipangilio ya Sauti</h4>
                 <div class="voice-settings">
@@ -1239,8 +1127,6 @@
                 </div>
                 <button class="btn-pink btn-sm" onclick="testVoice()"><i class="fa-solid fa-volume-high"></i> Jaribu Sauti</button>
             </div>
-
-            <!-- Admin Chatbot -->
             <div class="card card-purple">
                 <h4 style="font-size:14px;color:var(--purple);margin-bottom:8px;">🤖 AI Chatbot (Admin)</h4>
                 <div id="chatMessages" style="max-height:200px;overflow-y:auto;background:var(--panel-2);border-radius:8px;padding:8px;margin-bottom:8px;">
@@ -1555,7 +1441,7 @@ const supabase = {
 // ====================================================================
 const ADMIN_ID = '1616';
 const ADMIN_PASS = '1616';
-const STORAGE_KEY = 'dr_william_data_v5';
+const STORAGE_KEY = 'dr_william_data_v6';
 
 let db = loadData();
 let currentUser = null;
@@ -1701,7 +1587,7 @@ function getWorkHoursForDay(userId, date) {
 }
 
 // ====================================================================
-// SYNC DATA - CLOUD & LOCAL LINKED
+// SYNC DATA
 // ====================================================================
 async function syncData() {
     const dot = document.getElementById('syncDot');
@@ -1876,7 +1762,6 @@ function startVoiceReminders() {
             }
         }
         
-        // Check savings reminder for Admin
         if (currentUser.role === 'admin') {
             const todaySavings = db.savings ? db.savings.find(s => s.date === today && s.user_id === currentUser.id) : null;
             if (!todaySavings) {
@@ -3237,7 +3122,7 @@ async function deleteDrug(drugId) {
 }
 
 // ====================================================================
-// RENDER: STOCK - Excel Style (IMEREKEBISHWA)
+// RENDER: STOCK
 // ====================================================================
 function populateStockSelects() {
     const select = document.getElementById('stockProductSelect');
@@ -3373,7 +3258,7 @@ function printStock() {
 }
 
 // ====================================================================
-// ADMIN UPDATE STOCK - IMEREKEBISHWA KABISA
+// ADMIN UPDATE STOCK
 // ====================================================================
 async function adminUpdateStock() {
     if (!currentUser || currentUser.role !== 'admin') {
@@ -3388,7 +3273,6 @@ async function adminUpdateStock() {
     const qty = parseInt(document.getElementById('stockQty').value) || 0;
     const price = parseInt(document.getElementById('stockPrice').value) || 0;
 
-    // KUHUSU BIDHAA MPYA
     if (selectedValue === 'new') {
         if (!name) {
             showToast('Tafadhali andika jina la bidhaa', 'warn');
@@ -3399,16 +3283,13 @@ async function adminUpdateStock() {
             return;
         }
 
-        // Angalia kama bidhaa tayari ipo kwenye stock
         const existing = db.stock.find(s => s.name.toLowerCase() === name.toLowerCase());
         if (existing) {
-            // Ikiwa ipo, ongeza idadi
             existing.qty = (existing.qty || 0) + qty;
             if (price > 0) existing.price = price;
             await supabase.updateStock(existing.id, { qty: existing.qty, price: existing.price });
             showToast(`✅ ${name} imeongezwa! Idadi mpya: ${existing.qty}`, 'ok');
         } else {
-            // Ikiwa haipo, unda mpya
             const stockItem = {
                 id: 'st' + Date.now() + Math.random().toString(36).substr(2, 4),
                 name: name,
@@ -3422,9 +3303,7 @@ async function adminUpdateStock() {
             db.stock.push(stockItem);
             showToast(`✅ ${name} imeongezwa kwenye stock! Idadi: ${qty}`, 'ok');
         }
-    } 
-    // KUHUSU BIDHAA ILIYOPO
-    else {
+    } else {
         const stockItem = db.stock.find(s => s.id === selectedValue);
         if (!stockItem) {
             showToast('Bidhaa haipatikani!', 'warn');
@@ -3436,7 +3315,6 @@ async function adminUpdateStock() {
             return;
         }
 
-        // ONGEZA IDADI (si kubadilisha)
         stockItem.qty = (stockItem.qty || 0) + qty;
         if (price > 0) stockItem.price = price;
         if (name) stockItem.name = name;
@@ -3451,7 +3329,6 @@ async function adminUpdateStock() {
         showToast(`✅ Stock imeongezwa! ${stockItem.name} sasa ina ${stockItem.qty}`, 'ok');
     }
 
-    // Futa fomu na refresh
     document.getElementById('stockProductName').value = '';
     document.getElementById('stockProductDesc').value = '';
     document.getElementById('stockQty').value = '';
@@ -3488,7 +3365,7 @@ function editStockItem(itemId) {
     document.getElementById('stockProductSelect').value = itemId;
     document.getElementById('stockProductName').value = item.name || '';
     document.getElementById('stockProductDesc').value = item.description || '';
-    document.getElementById('stockQty').value = 0; // Ongeza idadi mpya
+    document.getElementById('stockQty').value = 0;
     document.getElementById('stockPrice').value = item.price || 0;
     
     showToast(`✅ Ongeza idadi kwa ${item.name} (sasa ina ${item.qty})`, 'ok');
@@ -3528,9 +3405,6 @@ function populateSaleSelects() {
     }
 }
 
-// ====================================================================
-// RENDER: SALES HISTORY
-// ====================================================================
 function renderSales() {
     const container = document.getElementById('salesHistory');
     const sales = db.sales ? db.sales.sort((a, b) => b.date.localeCompare(a.date)) : [];
@@ -3561,9 +3435,6 @@ function renderSales() {
     }).join('');
 }
 
-// ====================================================================
-// RECORD SALE - IMEREKEBISHWA
-// ====================================================================
 async function recordSale() {
     if (!currentUser) return;
 
@@ -3595,7 +3466,6 @@ async function recordSale() {
         return;
     }
 
-    // Punguza stock
     item.qty = (item.qty || 0) - qty;
     if (db.stock.find(d => d.id === drugId)) {
         await supabase.updateStock(drugId, { qty: item.qty });
@@ -3820,7 +3690,7 @@ function viewReceipt(saleId) {
 }
 
 // ====================================================================
-// RENDER: PATIENTS - EXCEL STYLE (IMEREKEBISHWA)
+// RENDER: PATIENTS
 // ====================================================================
 function renderPatients() {
     const tbody = document.getElementById('patientTableBody');
@@ -3881,9 +3751,6 @@ function renderPatients() {
     `).join('');
 }
 
-// ====================================================================
-// PRINT PATIENTS
-// ====================================================================
 function printPatients() {
     const patients = db.patients || [];
     if (patients.length === 0) {
@@ -3991,9 +3858,6 @@ function viewPatientDetails(patientId) {
     });
 }
 
-// ====================================================================
-// CONFIRM ADD PATIENT - IMEREKEBISHWA
-// ====================================================================
 async function confirmAddPatient() {
     if (!currentUser) return;
 
@@ -4063,7 +3927,7 @@ async function deletePatient(patientId) {
 }
 
 // ====================================================================
-// RENDER: EXPENSES - Admin Only
+// RENDER: EXPENSES
 // ====================================================================
 function renderExpenses() {
     const container = document.getElementById('expensesContainer');
@@ -5088,6 +4952,9 @@ function openEditUser(userId) {
     openModal('editUserModal');
 }
 
+// ====================================================================
+// CONFIRM EDIT USER - IMEREKEBISHWA KABISA
+// ====================================================================
 async function confirmEditUser() {
     const userId = document.getElementById('editUserId').value;
     const name = document.getElementById('editUserName').value.trim();
@@ -5100,23 +4967,54 @@ async function confirmEditUser() {
         return;
     }
 
-    const updateData = { name: name, salary: salary };
+    // 1. TAFUTA MFANYAKAZI KWENYE DB
+    const user = db.users.find(u => u.id === userId);
+    if (!user) {
+        showToast('Mfanyakazi hapatikani!', 'warn');
+        return;
+    }
+
+    // 2. BADILISHA DATA KWENYE LOCAL
+    user.name = name;
+    user.salary = salary;
+    if (phone) user.phone = phone;
+    if (pass) user.password = pass;
+
+    // 3. HIFADHI KWENYE LOCAL STORAGE
+    saveData();
+
+    // 4. TUMIA SUPABASE KUHIFADHI CLOUD
+    const updateData = { 
+        name: name, 
+        salary: salary 
+    };
     if (phone) updateData.phone = phone;
     if (pass) updateData.password = pass;
 
-    await supabase.updateUser(userId, updateData);
-    const user = db.users.find(u => u.id === userId);
-    if (user) {
-        user.name = name;
-        user.salary = salary;
-        if (phone) user.phone = phone;
-        if (pass) user.password = pass;
+    try {
+        await supabase.updateUser(userId, updateData);
+        showToast('✅ Taarifa zimebadilishwa kwenye Cloud!', 'ok');
+    } catch (e) {
+        showToast('⚠️ Imehifadhiwa local, lakini cloud imeshindwa', 'warn');
     }
-    saveData();
+
+    // 5. SAWAZISHA DATA ZOTE
     await syncData();
+
+    // 6. FUNGA MODAL NA RENDER UPYA
     closeModal('editUserModal');
     renderAll();
-    showToast('✅ Taarifa zimebadilishwa!', 'ok');
+    
+    // 7. HAKIKISHA CURRENT USER IKIWA NDIO ALIYEEDIT
+    if (currentUser && currentUser.id === userId) {
+        currentUser = user;
+        document.getElementById('userNameDisplay').textContent = currentUser.name;
+        document.getElementById('userRoleDisplay').textContent = currentUser.role === 'admin' ? 'Msimamizi' : 'Mfanyakazi';
+        saveData();
+    }
+
+    showToast('✅ Taarifa za ' + name + ' zimebadilishwa!', 'ok');
+    speakText('Taarifa zimebadilishwa');
 }
 
 // ====================================================================
@@ -6070,12 +5968,13 @@ function init() {
     initJackpot();
     initSignaturePad();
 
-    console.log('✅ Dr. William Mfumo Kamili v5 imeanza!');
-    console.log('👑 Admin: *** / ***');
+    console.log('✅ Dr. William Mfumo Kamili v6 imeanza!');
+    console.log('👑 Admin: 1616 / 1616');
     console.log('✅ Stock inaongezeka!');
     console.log('✅ Wagonjwa wanaonekana!');
     console.log('✅ Mauzo yanafanya kazi!');
     console.log('✅ Cloud na Local zinalink!');
+    console.log('✅ Kuedit wafanyakazi kunahifadhiwa!');
 }
 
 document.addEventListener('DOMContentLoaded', init);
